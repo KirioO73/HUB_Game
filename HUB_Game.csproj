@@ -306,8 +306,9 @@
     <Compile Include="Assets\Scripts\Labyrinthe\GameControllerOzu.cs" />
     <Compile Include="Assets\Scripts\Labyrinthe\Result.cs" />
     <Compile Include="Assets\Scripts\Labyrinthe\TileMapController.cs" />
-    <Compile Include="Assets\Scripts\OSU\GameController.cs" />
+    <Compile Include="Assets\Scripts\Lights\GameControllerLights.cs" />
     <Compile Include="Assets\Scripts\OSU\GameControllerColor.cs" />
+    <Compile Include="Assets\Scripts\OSU\GameControllerSpawn.cs" />
     <Compile Include="Assets\Scripts\UI\ChangeColor.cs" />
     <Compile Include="Assets\Scripts\UI\playersRdy.cs" />
     <Compile Include="Assets\Scripts\UI\timer.cs" />

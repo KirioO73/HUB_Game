@@ -17,3 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Labyrinthe.unity
     guid: 2cfe130dec107084d91ed261b3c45783
+  - enabled: 1
+    path: Assets/_Scenes/Lights.unity
+    guid: 561224bf4ae633847bce7ae9f63f1de5

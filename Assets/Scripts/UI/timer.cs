@@ -12,12 +12,12 @@ public class timer : MonoBehaviour {
 	public float timeLeft;
 	public Text nbRdy;
 
-    string[] tabJeux1 = { "OsuColor", "OsuSpown"};//{ "TapTaup" };
-    string[] tabJeux2 = { "OsuColor", "OsuSpown", "Labyrinthe" };
-    string[] tabJeux3 = { "OsuColor", "OsuSpown" };
+    string[] tabJeux1 = { "OsuColor", "OsuSpown", "Lights"};//{ "TapTaup" };
+    string[] tabJeux2 = { "OsuColor", "OsuSpown", "Labyrinthe", "Lights" };
+    string[] tabJeux3 = { "OsuColor", "OsuSpown", "Lights" };
     string[] tabJeux4 = { "Labyrinthe" };
-    string[] tabJeux5 = { "OsuColor", "OsuSpown" };
-    string[] tabJeux6 = { "Labyrinthe" };
+    string[] tabJeux5 = { "OsuColor", "OsuSpown", "Lights" };
+    string[] tabJeux6 = { "Lights" };
 
     private void Start()
     {
