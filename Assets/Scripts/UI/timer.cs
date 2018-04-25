@@ -3,30 +3,41 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class timer : MonoBehaviour {
-
-
-    int phase;
+    
     public Text TextObject;
 	public float timeLeft;
 	public Text nbRdy;
 
-    string[] tabJeux1 = { "OsuColor", "OsuSpown", "Lights"};//{ "TapTaup" };
-    string[] tabJeux2 = { "OsuColor", "OsuSpown", "Labyrinthe", "Lights" };
-    string[] tabJeux3 = { "OsuColor", "OsuSpown", "Lights" };
-    string[] tabJeux4 = { "Labyrinthe" };
-    string[] tabJeux5 = { "OsuColor", "OsuSpown", "Lights" };
-    string[] tabJeux6 = { "Lights" };
+    string[] tabJeux1 = { "OSU", "Lights", "Taupe" };
+    string[] tabJeux2 = { "OSU", "Lights", "Labyrinthe", "Taupe" };
+    string[] tabJeux3 = { "OSU", "Lights", "Taupe" };
+    string[] tabJeux4 = { "OSU", "Lights", "Labyrinthe", "Taupe" };
+    string[] tabJeux5 = { "OSU", "Lights", "Taupe" };
+    string[] tabJeux6 = { "OSU", "Lights", "Labyrinthe", "Taupe" };
+
+    public GameObject[] IconeList;
+    public Sprite[] SpriteList;
+
+    int phase;
+    string game;
 
     private void Start()
     {
+        game = "";
+        for (int i = 0; i < IconeList.Length; i++)
+        {
+            IconeList[i].SetActive(false);
+        }
         phase = 0;
     }
 
     void Update () {
         int tmpNbRdy = int.Parse(nbRdy.text);
-        string game;
+        
+
         //Phase 0 = Phase de 'log'
         if (phase == 0)
         {
@@ -34,6 +45,11 @@ public class timer : MonoBehaviour {
             {
                 phase = 1;
                 timeLeft = 10;
+                //Start AnimChoix
+                for (int i = 0; i < IconeList.Length; i++)
+                {
+                    IconeList[i].SetActive(true);
+                }
             }
             else
             {
@@ -42,6 +58,7 @@ public class timer : MonoBehaviour {
                 TextObject.text = tmpTimeLeft.ToString();
             }
         }
+
         //Phase 1 = Décompte jeu
         if(phase == 1)
         {
@@ -52,33 +69,39 @@ public class timer : MonoBehaviour {
                     switch (tmpNbRdy)
                     {
                         case 1:
-                            game = tabJeux1[Mathf.FloorToInt(Random.Range(0, tabJeux4.Length))];
-                            LaunchGame(game);
+                            game = tabJeux1[Mathf.FloorToInt(UnityEngine.Random.Range(0, tabJeux4.Length))];
+                            timeLeft = 2;
+                            //LaunchGame(game);
                             phase = 2;
                             break;
                         case 2:
-                            game = tabJeux2[Mathf.FloorToInt(Random.Range(0, tabJeux4.Length))];
-                            LaunchGame(game);
+                            game = tabJeux2[Mathf.FloorToInt(UnityEngine.Random.Range(0, tabJeux4.Length))];
+                            timeLeft = 2;
+                            //LaunchGame(game);
                             phase = 2;
                             break;
                         case 3:
-                            game = tabJeux3[Mathf.FloorToInt(Random.Range(0, tabJeux4.Length))];
-                            LaunchGame(game);
+                            game = tabJeux3[Mathf.FloorToInt(UnityEngine.Random.Range(0, tabJeux4.Length))];
+                            timeLeft = 2;
+                            //LaunchGame(game);
                             phase = 2;
                             break;
                         case 4:
-                            game = tabJeux4[Mathf.FloorToInt(Random.Range(0, tabJeux4.Length))];
-                            LaunchGame(game);
+                            game = tabJeux4[Mathf.FloorToInt(UnityEngine.Random.Range(0, tabJeux4.Length))];
+                            timeLeft = 2;
+                            //LaunchGame(game);
                             phase = 2;
                             break;
                         case 5:
-                            game = tabJeux5[Mathf.FloorToInt(Random.Range(0, tabJeux4.Length))];
-                            LaunchGame(game);
+                            game = tabJeux5[Mathf.FloorToInt(UnityEngine.Random.Range(0, tabJeux4.Length))];
+                            timeLeft = 2;
+                            //LaunchGame(game);
                             phase = 2;
                             break;
                         case 6:
-                            game = tabJeux6[Mathf.FloorToInt(Random.Range(0, tabJeux4.Length))];
-                            LaunchGame(game);
+                            game = tabJeux6[Mathf.FloorToInt(UnityEngine.Random.Range(0, tabJeux4.Length))];
+                            timeLeft = 2;
+                            //LaunchGame(game);
                             phase = 2;
                             break;
                         default:
@@ -89,7 +112,6 @@ public class timer : MonoBehaviour {
                 }
                 else
                 {
-                    //AnimChoix
                     timeLeft = timeLeft - Time.deltaTime;
                     int tmpTimeLeft = (int)timeLeft;
                     TextObject.text = tmpTimeLeft.ToString();
@@ -101,13 +123,34 @@ public class timer : MonoBehaviour {
                 timeLeft = 20;
             }
         }
+
+        //Phase 2 = Lancement jeu
+        if(phase == 2)
+        {
+            LaunchGame(game);
+        }
 		
         
 	}
 
 	void LaunchGame(string game) {
-        SceneManager.LoadScene(game);
-        //SceneManager.LoadScene ("TapTaupMain");
-        print(game);
+        for(int i = 0; i < IconeList.Length; i++)
+        {
+            IconeList[i].GetComponent<SwapIcon>().Speed = 100;
+            IconeList[i].GetComponent<SpriteRenderer>().sprite = Array.Find(SpriteList, s => s.name == "Icone_" + game);
+        }
+        if (timeLeft <= 0.0f)
+        {
+            SceneManager.LoadScene(game);
+            //SceneManager.LoadScene ("TapTaupMain");
+            print(game);
+        }
+        else
+        {
+            timeLeft = timeLeft - Time.deltaTime;
+            int tmpTimeLeft = (int)timeLeft;
+            TextObject.text = tmpTimeLeft.ToString();
+        }
+        
 	}
 }

@@ -309,8 +309,12 @@
     <Compile Include="Assets\Scripts\Lights\GameControllerLights.cs" />
     <Compile Include="Assets\Scripts\OSU\GameControllerColor.cs" />
     <Compile Include="Assets\Scripts\OSU\GameControllerSpawn.cs" />
+    <Compile Include="Assets\Scripts\Taupe\DestroyByTime.cs" />
+    <Compile Include="Assets\Scripts\Taupe\DestroyByTouch.cs" />
+    <Compile Include="Assets\Scripts\Taupe\GameController.cs" />
     <Compile Include="Assets\Scripts\UI\ChangeColor.cs" />
     <Compile Include="Assets\Scripts\UI\playersRdy.cs" />
+    <Compile Include="Assets\Scripts\UI\SwapIcon.cs" />
     <Compile Include="Assets\Scripts\UI\timer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -6,10 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Scenes/HUB.unity
+    path: Assets/_Scenes/_HUB.unity
     guid: 9eb2f01065c8a924182bb39c171f5958
   - enabled: 1
-    path: Assets/_Scenes/OsuColor.unity
+    path: Assets/_Scenes/OSU.unity
     guid: f03481391b41a65498836f4b44d060c9
   - enabled: 1
     path: Assets/_Scenes/OsuSpown.unity
@@ -20,3 +20,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Lights.unity
     guid: 561224bf4ae633847bce7ae9f63f1de5
+  - enabled: 1
+    path: Assets/_Scenes/Taupe.unity
+    guid: 8470a63760975b84eb596c61c544b619
